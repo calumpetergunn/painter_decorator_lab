@@ -5,20 +5,18 @@ const Paint = require('../models/paint.js');
 describe('Paint Tests',function(){
     let paint;
 
-    beforeEach(function(){
-        paint = new Paint(5,"Full");
+    beforeEach(function() {
+        paint = new Paint(5);
     });
+
     it('should have litres',function(){
         const result = paint.litres;
         assert.strictEqual(result, 5);
     });
-    it('should have a paint status',function(){
-        const result = paint.paintStatus;
-        assert.strictEqual(result, "Full");
+
+    it('should be able to check if empty',function(){
+        const result = paint.checkIfCanEmpty();
+        assert.strictEqual(result, false);
     });
-    it('should change paint status',function(){
-        paint.emptyCan(paint);
-        const result = paint.paintStatus;
-        assert.strictEqual(result, "Empty");
-    });
+
 });

@@ -1,15 +1,18 @@
-const Decorator = function(paintStock = 0){
-    this.paintStock = paintStock;
-}
+const Decorator = function(paintStock){
+    this.paintStock = [];
+};
 
-Decorator.prototype.addPaint = function(decorator){
-    decorator.paintStock += 1;
-}
+Decorator.prototype.addPaint = function(paint) {
+    this.paintStock.push(paint);
+};
 
-Decorator.prototype.totalLitres = function(decorator, paint) {
-    let total = decorator.paintStock * paint.litres;
-    return total;
-}
+Decorator.prototype.totalLitres = function() {
+    let paintTotal = 0;
+    for (paint of this.paintStock) {
+        paintTotal += paint.litres;
+    }
+        return paintTotal;
+};
 
 Decorator.prototype.canPaintRoom = function(decorator, paint, room) {
     let canPaint = decorator.totalLitres(decorator, paint);

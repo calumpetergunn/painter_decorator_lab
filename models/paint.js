@@ -1,9 +1,14 @@
-const Paint = function(litres,paintStatus = "Full"){
+const Paint = function(litres){
     this.litres = litres;
-    this.paintStatus = paintStatus;
 }
 
-Paint.prototype.emptyCan = function(paint){
-    paint.paintStatus = "Empty";
-}
+Paint.prototype.checkIfCanEmpty = function(){
+    if (this.litres === 0){
+        return true
+    } else {
+        return false
+    }
+};
+
+
 module.exports = Paint;
